@@ -42,9 +42,9 @@
                                   <tr>
                                     <th scope="row">--</th>
                                     <?php $sponsor  = DB::table('sponsors')->where('id', '=', $sportnew->sponsor_id)->first(); ?>
-                                    <td>{{ $sponsor->name }}</td>
+                                    <td>{{ $sponsor->title }}</td>
                                     <td>{{ $sportnew->name }}</td>
-                                    <td>{{ $sportnew->description }}</td>
+                                    <td>{{ $sportnew->post_content }}</td>
                                     <td>{{ $sportnew->show_at }}</td>
                                     
                                     <td>

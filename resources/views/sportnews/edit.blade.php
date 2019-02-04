@@ -53,7 +53,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $sportnews->name }}" required autofocus>
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $sportnews->title }}" required autofocus>
                                     <small class="text-info">Sunny, Cloudy, Rainy...</small>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Weather Message') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" required>{{ $sportnews->description }}</textarea>
+                                    <textarea class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" required>{{ $sportnews->post_content }}</textarea>
 
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback" role="alert">
