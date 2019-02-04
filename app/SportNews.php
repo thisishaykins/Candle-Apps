@@ -18,7 +18,7 @@ class SportNews extends Model
      * @var array
      */
     protected $fillable = [
-        'sponsor_id', 'name', 'description', 'bg_image', 'is_active', 'show_at',
+        'sponsor_id', 'title', 'post_content', 'bg_image', 'is_active', 'show_at',
     ];
 
 }
