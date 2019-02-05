@@ -101,6 +101,10 @@ class PINSController extends Controller
         ]);
 
 
+        // GET NETWORK DETAILS // Recharge CODE
+        $network = Networks::where('id', '=', $request->network_id)->first();
+
+
         if ($request->hasFile('sponsorimage')) {
 
             $imageName = str_slug('sponsored-'.$request->pin_code.time(), '-');
@@ -113,7 +117,7 @@ class PINSController extends Controller
                 'sponsor_id'            => $request->sponsor,
                 'sponsor_promo_image'   => 'images/'.$imageName,
                 'pin_code'              => $request->pin_code,
-                'pin_code_char'         => '*'.$request->pin_code.'*pin_code#',
+                'pin_code_char'         => '*'.$network->code.'*'.$request->pin_code.'#',
                 'is_active'             => $request->is_active,
                 'show_at'               => $request->show_at,
             ]);
@@ -128,7 +132,7 @@ class PINSController extends Controller
                 'network_id'            => $request->network_id,
                 'sponsor_id'            => $request->sponsor,
                 'pin_code'              => $request->pin_code,
-                'pin_code_char'         => '*'.$request->pin_code.'*pin_code#',
+                'pin_code_char'         => '*'.$network->code.'*'.$request->pin_code.'#',
                 'is_active'             => $request->is_active,
                 'show_at'               => $request->show_at,
             ]);
@@ -205,6 +209,10 @@ class PINSController extends Controller
         ]);
 
 
+        // GET NETWORK DETAILS // Recharge CODE
+        $network = Networks::where('id', '=', $request->network_id)->first();
+
+
         if ($request->hasFile('sponsor_promo_image')) {
 
             $imageName = str_slug('sponsored-'.$request->name.time(), '-');
@@ -217,7 +225,7 @@ class PINSController extends Controller
                 'sponsor_id'            => $request->sponsor_id,
                 'sponsor_promo_image'   => 'images/'.$imageName,
                 'pin_code'              => $request->pin_code,
-                'pin_code_char'         => '*'.$request->pin_code.'*pin_code#',
+                'pin_code_char'         => '*'.$network->code.'*'.$request->pin_code.'#',
                 'is_active'             => $request->is_active,
                 'show_at'               => $request->show_at,
             ]);
@@ -232,7 +240,7 @@ class PINSController extends Controller
                 'network_id'            => $request->network_id,
                 'sponsor_id'            => $request->sponsor,
                 'pin_code'              => $request->pin_code,
-                'pin_code_char'         => '*'.$request->pin_code.'*pin_code#',
+                'pin_code_char'         => '*'.$network->code.'*'.$request->pin_code.'#',
                 'is_active'             => $request->is_active,
                 'show_at'               => $request->show_at,
             ]);

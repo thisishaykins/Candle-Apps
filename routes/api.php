@@ -29,5 +29,6 @@ Route::middleware('auth:api')->group( function () {
 	// Candle Apps
 	Route::resource('sports', 'API\SportsApiController');
 	Route::resource('weather', 'API\WeatherApiController');
+	Route::resource('freebies', 'API\FreebiesApiController');
 });
 // Route::get('sports', 'Api\SportsApi@index');

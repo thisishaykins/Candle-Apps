@@ -19,7 +19,7 @@
                   <div class="card-body">
                     <h4 class="header-title">
                       {{ __('All') }} {{ $pages['title'] }} 
-                      <small><a class="btn float-right" href="{{ route('sponsors.create') }}">Add New</a> </small> 
+                      <small><a class="btn btn-success float-right" href="{{ route('pins.create') }}">Add New</a> </small> 
                     </h4>
                   </div>
 
