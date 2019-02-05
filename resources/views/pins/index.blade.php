@@ -50,7 +50,11 @@
                                     <th scope="row">--</th>
                                     <td>{{ $pin->pin_code }}</td>
                                     <td>{{ $network->name }}</td>
-                                    <td>{{ $location->name }}</td>
+                                    @if($pin->location_id == 0)
+                                      <td>All Locations</td>
+                                    @else:
+                                      <td>{{ $location->name }}</td>
+                                    @endif;
                                     <td>
                                       {{ $sponsor->name }} <br/>
                                       <img src="{{ asset($pin->sponsor_promo_image) }}" width="250" >
