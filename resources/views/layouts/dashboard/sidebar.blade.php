@@ -10,7 +10,17 @@
 
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
-                            <span>{{ __('Sport News') }}</span>
+                            <span>{{ __('Candle Business') }}</span>
+                        </a>
+                        <ul class="collapse">
+                          <li><a href="{{ route('businessnews.create') }}">Add New</a></li>
+                          <li><a href="{{ route('businessnews.index') }}">All Business News</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
+                            <span>{{ __('Candle Sport') }}</span>
                         </a>
                         <ul class="collapse">
                           <li><a href="{{ route('sportnews.create') }}">Add New</a></li>
@@ -20,7 +30,7 @@
 
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
-                            <span>{{ __('Weather - Status') }}</span>
+                            <span>{{ __('Candle Weather - Status') }}</span>
                         </a>
                         <ul class="collapse">
                           <li><a href="{{ route('weather.create') }}">Add New</a></li>
@@ -30,7 +40,7 @@
 
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
-                            <span>{{ __('Freebies - Recharge Card') }}</span>
+                            <span>{{ __('Candle Freebies - Airtime') }}</span>
                         </a>
                         <ul class="collapse">
                           <li><a href="{{ route('pins.create') }}">Add New</a></li>
@@ -40,7 +50,7 @@
 
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
-                            <span>{{ __('Freebies - Networks') }}</span>
+                            <span>{{ __('Candle Freebies - Networks') }}</span>
                         </a>
                         <ul class="collapse">
                           <li><a href="{{ route('networks.create') }}">Add New</a></li>

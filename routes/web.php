@@ -38,6 +38,10 @@ Route::post('dnds/import', 'DNDController@import')->name('dnds.import');
 Route::resource('sportnews', 'SportNewsController');
 
 
+// BusinessNews Controller & Page Routes
+Route::resource('businessnews', 'BusinessNewsController');
+
+
 // Weather Controller & Page Routes
 Route::resource('weather', 'WeatherController');
 

@@ -30,5 +30,6 @@ Route::middleware('auth:api')->group( function () {
 	Route::resource('sports', 'API\SportsApiController');
 	Route::resource('weather', 'API\WeatherApiController');
 	Route::resource('freebies', 'API\FreebiesApiController');
+	Route::resource('business', 'API\BusinessNewsApiController');
 });
 // Route::get('sports', 'Api\SportsApi@index');
