@@ -45,7 +45,7 @@ class FreebiesApiController extends BaseController
                             ->orderBy('at_pins.id', 'DESC')
                             ->get();
 
-        if ($freebies->first()) {
+        if (!empty($freebies->first())) {
 
             foreach ($freebies as $key => $freebies) {
 
@@ -122,7 +122,7 @@ class FreebiesApiController extends BaseController
 
             $get_location       = Locations::where('node', $location_node)->first(); 
 
-            if ($get_location->first()) {
+            if (!empty($get_location->first())) {
 
                 $today          = Carbon::today();
                 $where_array    = array('at_pins.show_at' => $today->toDateString(), 'at_pins.is_active' => 1, 'at_pins.location_id' => $get_location->id);
@@ -133,7 +133,7 @@ class FreebiesApiController extends BaseController
                                     ->orderBy('at_pins.id', 'DESC')
                                     ->get();
 
-                if ($freebies->first()) {
+                if (!empty($freebies->first())) {
 
                     foreach ($freebies as $key => $freebies) {
 
