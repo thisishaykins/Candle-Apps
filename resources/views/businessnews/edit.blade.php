@@ -33,7 +33,7 @@
 
                                 <div class="col-md-6">
                                     <select id="sponsor_id" class="form-control{{ $errors->has('sponsor_id') ? ' is-invalid' : '' }}" name="sponsor_id" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach($sponsors as $sponsor)
                                             <option value="{{ $sponsor->id }}" <?php if ($sponsor->id == $businessnews->sponsor_id) { echo 'selected'; }?> >
                                                 {{ $sponsor->name }} 
@@ -114,7 +114,7 @@
 
                                 <div class="col-md-6">
                                     <select id="is_active" class="form-control{{ $errors->has('is_active') ? ' is-invalid' : '' }}" name="is_active" value="{{ $businessnews->is_active }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="1" <?php if ($businessnews->is_active == 1): ?> selected <?php endif ?> >Active</option>
                                         <option value="0"  <?php if ($businessnews->is_active == 0): ?> selected <?php endif ?> >Inactive</option>
                                     </select>

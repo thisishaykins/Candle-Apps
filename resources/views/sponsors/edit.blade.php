@@ -85,7 +85,7 @@
                                                 Inactive
                                             <?php endif ?>
                                         </option>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>

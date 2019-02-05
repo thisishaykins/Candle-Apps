@@ -67,7 +67,7 @@
 
                                 <div class="col-md-6">
                                     <select id="is_active" class="form-control{{ $errors->has('is_active') ? ' is-invalid' : '' }}" name="is_active" value="{{ old('is_active') }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>

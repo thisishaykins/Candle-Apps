@@ -47,7 +47,7 @@
 
                                 <div class="col-md-6">
                                     <select id="location_id" class="form-control{{ $errors->has('location_id') ? ' is-invalid' : '' }}" name="location_id" value="{{ $pin->location_id }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="0">All Locations</option>
                                         @foreach($locations as $location)
                                             <option value="{{ $location->id }}" <?php if ($location->id == $pin->location_id) { echo 'selected'; }?> >{{ $location->name }} ({{ $location->node }})</option>
@@ -67,7 +67,7 @@
 
                                 <div class="col-md-6">
                                     <select id="network_id" class="form-control{{ $errors->has('network_id') ? ' is-invalid' : '' }}" name="network_id" value="{{ $pin->network_id }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach($networks as $network)
                                             <option value="{{ $network->id }}" <?php if ($network->id == $pin->network_id) { echo 'selected'; }?> >{{ $network->name }}</option>
                                         @endforeach
@@ -86,7 +86,7 @@
 
                                 <div class="col-md-6">
                                     <select id="sponsor" class="form-control{{ $errors->has('sponsor') ? ' is-invalid' : '' }}" name="sponsor" value="{{ $pin->sponsor_id }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach($sponsors as $sponsor)
                                             <option value="{{ $sponsor->id }}" <?php if ($sponsor->id == $pin->sponsor_id) { echo 'selected'; }?> >{{ $sponsor->name }}</option>
                                         @endforeach
@@ -143,7 +143,7 @@
                                                 Inactive
                                             <?php endif ?>
                                         </option>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>

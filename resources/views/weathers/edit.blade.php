@@ -35,7 +35,7 @@
 
                                 <div class="col-md-6">
                                     <select id="location_id" class="form-control{{ $errors->has('location_id') ? ' is-invalid' : '' }}" name="location_id" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach($locations as $location)
                                             <option value="{{ $location->id }}" <?php if ($location->id == $weather->location_id) { echo 'selected'; }?> >
                                                 {{ $location->name }} ({{ $location->node }})

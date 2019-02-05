@@ -25,7 +25,7 @@
 
                                 <div class="col-md-6">
                                     <select id="location_id" class="form-control{{ $errors->has('location_id') ? ' is-invalid' : '' }}" name="location_id" value="{{ old('location_id') }}" required>
-                                        <option>Select</option>
+                                        <option value="">Select</option>
                                         @foreach($locations as $location)
                                             <option value="{{ $location->id }}">{{ $location->name }} ({{ $location->node }})</option>
                                         @endforeach
