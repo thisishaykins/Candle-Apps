@@ -61,7 +61,7 @@ class BusinessNewsApiController extends BaseController
 
         } else {
 
-            return $this->sendError('No business news not available at the moment', $errorMessages = [], 404);
+            return $this->sendError('No business news available at the moment', $errorMessages = [], 404);
 
         }
         
