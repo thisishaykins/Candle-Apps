@@ -122,7 +122,7 @@ class FreebiesApiController extends BaseController
 
             $get_location       = Locations::where('node', $location_node)->first(); 
 
-            if (!empty($get_location->first())) {
+            if (!empty($get_location)) {
 
                 $today          = Carbon::today();
                 $where_array    = array('at_pins.show_at' => $today->toDateString(), 'at_pins.is_active' => 1, 'at_pins.location_id' => $get_location->id);
