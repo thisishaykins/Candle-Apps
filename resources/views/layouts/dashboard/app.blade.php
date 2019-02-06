@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ __('title') }} | {{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $pages['title'] }} | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
