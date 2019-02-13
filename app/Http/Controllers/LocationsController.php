@@ -83,7 +83,7 @@ class LocationsController extends Controller
             'address'           => 'required', 'string', 'max:5000',
             'latitude'          => 'required', 'string', 'min:6',
             'longtitude'        => 'required', 'string', 'min:6',
-            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max20048',
+            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
         ]);
   
         // Locations::create($request->all());
