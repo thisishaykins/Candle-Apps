@@ -180,7 +180,7 @@ class WeatherController extends Controller
         ]);
   
 
-        if ($request->hasFile('logo')) {
+        if ($request->hasFile('bg_img')) {
 
             $imageName = str_slug($request->name.time(), '-');
             $imageName = $imageName.'.'.request()->bg_img->getClientOriginalExtension();
