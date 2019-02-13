@@ -79,7 +79,7 @@ class SponsorsController extends Controller
         $request->validate([
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'logo'              => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo'              => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'is_active'         => 'required',
         ]);
 
@@ -160,7 +160,7 @@ class SponsorsController extends Controller
         $request->validate([
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'is_active'         => 'required',
         ]);
   

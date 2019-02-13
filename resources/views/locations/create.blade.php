@@ -11,7 +11,7 @@
 
                     <div class="card-body">
                         <h4 class="header-title">{{ __('Add New') }} {{ $pages['title'] }}</h4>
-                        <form method="POST" action="{{ route('locations.store') }}">
+                        <form method="POST" action="{{ route('locations.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">

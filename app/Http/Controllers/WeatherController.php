@@ -84,7 +84,7 @@ class WeatherController extends Controller
             'location_id'       => 'required', 'string', 'max:10',
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
         ]);
 
         if ($request->hasFile('bg_img')) {
@@ -176,7 +176,7 @@ class WeatherController extends Controller
             'location_id'       => 'required', 'string', 'max:10',
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
         ]);
   
 

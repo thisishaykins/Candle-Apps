@@ -84,7 +84,7 @@ class BusinessNewsController extends Controller
             'sponsor_id'        => 'required', 'string', 'max:10',
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'show_at'           => 'required', 'string', 'max:15',
             'is_active'         => 'required', 'string', 'max:3',
         ]);
@@ -180,7 +180,7 @@ class BusinessNewsController extends Controller
             'sponsor_id'        => 'required', 'string', 'max:10',
             'name'              => 'required', 'string', 'max:190',
             'description'       => 'required', 'string', 'max:5000',
-            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bg_img'            => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'show_at'           => 'required', 'string', 'max:15',
             'is_active'         => 'required', 'string', 'max:3',
         ]);

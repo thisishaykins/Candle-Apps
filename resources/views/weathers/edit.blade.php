@@ -24,7 +24,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('weather.update', $weather->id) }}">
+                        <form method="POST" action="{{ route('weather.update', $weather->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

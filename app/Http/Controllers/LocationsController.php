@@ -83,7 +83,7 @@ class LocationsController extends Controller
             'address'           => 'required', 'string', 'max:5000',
             'latitude'          => 'required', 'string', 'min:6',
             'longtitude'        => 'required', 'string', 'min:6',
-            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:6048',
+            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max20048',
         ]);
   
         // Locations::create($request->all());
@@ -182,14 +182,14 @@ class LocationsController extends Controller
             'address'           => 'required', 'string', 'max:5000',
             'latitude'          => 'required', 'string', 'min:6',
             'longtitude'        => 'required', 'string', 'min:6',
-            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:6048',
+            'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
         ]);
   
         if ($request->hasFile('logo')) {
 
             $imageName = str_slug($request->name.time(), '-');
-            $imageName = $imageName.'.'.request()->bg_img->getClientOriginalExtension();
-            request()->bg_img->move(public_path('images'), $imageName);
+            $imageName = $imageName.'.'.request()->logo->getClientOriginalExtension();
+            request()->logo->move(public_path('images'), $imageName);
 
             $location->update([
                 'name'              => $request->name,
@@ -201,7 +201,7 @@ class LocationsController extends Controller
                 'location_image'    => 'images/'.$imageName,
             ]);
 
-            return redirect()->route('weather.index')
+            return redirect()->route('location.index')
                         ->with('success','Location updated successfully.');
 
         } else {
@@ -215,7 +215,7 @@ class LocationsController extends Controller
                 'longtitude'        => $request->longtitude,
             ]);
 
-            return redirect()->route('weather.index')
+            return redirect()->route('location.index')
                         ->with('success','Location updated successfully without Logo.');
 
         }

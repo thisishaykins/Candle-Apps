@@ -24,7 +24,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('sponsors.update', $sponsor->id) }}">
+                        <form method="POST" action="{{ route('sponsors.update', $sponsor->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
