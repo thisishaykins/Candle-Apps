@@ -41,7 +41,8 @@
                                 @foreach($businessnews as $news)
                                   <tr>
                                     <th scope="row">--</th>
-                                    <?php $sponsor  = DB::table('sponsors')->where('id', '=', $news->sponsor_id)->first(); ?>
+                                    <?php $sponsor  = DB::table('sponsors')->where('id', '=', $news->sponsor_id)->first(); 
+                                    var_dump($sponsor); ?>
                                     <td>{{ $sponsor->name }}</td>
                                     <td>{{ $news->business_post_title }}</td>
                                     <td>{{ $news->business_post_content }}</td>
