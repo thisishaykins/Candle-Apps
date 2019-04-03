@@ -14,7 +14,7 @@ class CreateCandleAnalyticsTable extends Migration
     public function up()
     {
         Schema::create('candle_analytics', function (Blueprint $table) {
-            $table->bigIncrements('an_id');
+            $table->bigIncrements('id');
             $table->bigInteger('an_location_id');
             $table->string('an_number_cars');
             $table->longText('an_number_persons_car');
