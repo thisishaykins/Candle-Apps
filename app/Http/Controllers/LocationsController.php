@@ -201,7 +201,7 @@ class LocationsController extends Controller
                 'location_image'    => 'images/'.$imageName,
             ]);
 
-            return redirect()->route('location.index')
+            return redirect()->route('locations.index')
                         ->with('success','Location updated successfully.');
 
         } else {
@@ -215,7 +215,7 @@ class LocationsController extends Controller
                 'longtitude'        => $request->longtitude,
             ]);
 
-            return redirect()->route('location.index')
+            return redirect()->route('locations.index')
                         ->with('success','Location updated successfully without Logo.');
 
         }
