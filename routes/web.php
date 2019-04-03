@@ -60,3 +60,10 @@ Route::resource('sponsors', 'SponsorsController');
 
 // Locations Controller & Page Routes
 Route::resource('locations', 'LocationsController');
+
+
+// Candle Analytics Controller & Page Routes
+Route::resource('canalytics', 'CandleAnalyticsController');
+
+
+

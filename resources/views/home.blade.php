@@ -210,8 +210,8 @@
                                 </div>
                                 <div class="lts-content">
                                     <span>Admin Post</span>
-                                    <h2><a href="#">{{ $news_item->name }}</a></h2>
-                                    <p>{{ $news_item->description }}</p>
+                                    <h2><a href="#">{{ $news_item->title }}</a></h2>
+                                    <p>{{ $news_item->post_content }}</p>
                                 </div>
                             </div>
                             @endforeach

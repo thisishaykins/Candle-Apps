@@ -219,4 +219,36 @@
         });
     }
 
+
+
+
+
+    // SOE Percentage Calculations
+    $('input.soe_item').on('keyup',function() {   
+        var total = 0;
+        $('input.soe_item').each(function(){
+            if (this.value == ''){
+                total += parseInt(0);
+            }else{
+                total += parseInt(this.value);
+            }
+        });
+        $('#soe_total').text(total);
+    });
+
+    // Gender Percentage Calculations
+    $('input.gender_item').on('keyup',function() {   
+        var total = 0;
+        $('input.gender_item').each(function(){
+            if (this.value == ''){
+                total += parseInt(0);
+            }else{
+                total += parseInt(this.value);
+            }
+        });
+        $('#gender_total').text(total);
+    });
+
+
+
 })(jQuery);

@@ -89,6 +89,16 @@
                         </ul>
                     </li>        
 
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i>
+                            <span>{{ __('Candle Analytics') }}</span>
+                        </a>
+                        <ul class="collapse">
+                          <li><a href="{{ route('canalytics.create') }}">Add New</a></li>
+                          <li><a href="{{ route('canalytics.index') }}">All Analytics</a></li>
+                        </ul>
+                    </li>        
+
                     <!-- <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
                                 Types
