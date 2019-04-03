@@ -31,5 +31,8 @@ Route::middleware('auth:api')->group( function () {
 	Route::resource('weather', 'API\WeatherApiController');
 	Route::resource('freebies', 'API\FreebiesApiController');
 	Route::resource('business', 'API\BusinessNewsApiController');
+	Route::resource('canalytics', 'API\CandleAnalyticsApiController');
 });
-// Route::get('sports', 'Api\SportsApi@index');
+
+// Sample GET API
+// Route::get('route_name', 'Api\ControllerApi@index');
