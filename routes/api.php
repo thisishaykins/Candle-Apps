@@ -18,8 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// API ROUTES
-// Auth::routes();
+// API AUTH ROUTES
+Auth::routes(); // Should be disabled (commented out) later on to disenable further auth account creation
+
+// API APPS ROUTES
 Route::middleware('auth:api')->group( function () {
 	// Candle Resources
 	Route::resource('locations', 'API\LocationsApiController');
