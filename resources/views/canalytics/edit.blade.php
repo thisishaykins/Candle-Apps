@@ -29,10 +29,32 @@
                             @method('PUT')
                             
                             
-                           <!--  <div class="form-group row">
+                            <div class="form-group row">
                                 
-                            </div> -->
+                            </div>
 
+                            <div class="form-group row">
+                                <label for="time_id" class="col-md-4 col-form-label text-md-right">{{ __('Select Data Time') }}</label>
+
+                                <div class="col-md-6">
+                                    <select id="time_id" class="form-control{{ $errors->has('time_id') ? ' is-invalid' : '' }}" name="time_id" required>
+                                        <option value="">Select</option>
+                                        @foreach($analytics_time as $time)
+                                            <option value="{{ $time->id }}" <?php if ($time->id == $canalytic->an_time_id) { echo 'selected'; }?> >
+                                                {{ $time->time_hrs }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('time_id'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('time_id') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            
                             <div class="form-group row">
                                 <label for="location_id" class="col-md-4 col-form-label text-md-right">{{ __('Select Board/Location') }}</label>
 
@@ -53,8 +75,6 @@
                                     @endif
                                 </div>
                             </div>
-
-                    
 
 
                             <div class="form-group row">

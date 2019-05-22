@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use DB;
 use App\Locations;
+use App\CandleAnalyticsTime;
 use Carbon\Carbon;
 use Validator;
 
@@ -37,6 +38,7 @@ class CandleAnalyticsApiController extends BaseController
         // $where_array        = array('locations.is_active' => 1, 'locations.location_id' => 0);
         $canalytics         = DB::table('locations')
                             ->join('candle_analytics', 'candle_analytics.an_location_id', '=', 'locations.id')
+                            ->join('candle_analytics_time', 'candle_analytics_time.id', '=', 'candle_analytics.an_time_id')
                             // ->where($where_array)
                             ->orderBy('candle_analytics.id', 'DESC')
                             ->get();
@@ -46,10 +48,12 @@ class CandleAnalyticsApiController extends BaseController
             foreach ($canalytics as $key => $canalytics) {
 
                 $canalytics_array[] = array(
+                    'hour'      => $canalytics->time,
+                    'hour_text' => $canalytics->time_hrs,
                     'location'  => array(
                                     'location_name' => $canalytics->name, 
-                                    'location_node' => $canalytics->node 
-                                ), 
+                                    'location_node' => $canalytics->node
+                    ),
                     'analytics' => array(
                                     'number_cars'               => $canalytics->an_number_cars, 
                                     'number_persons_per_car'    => $canalytics->an_number_persons_car, 
@@ -60,8 +64,8 @@ class CandleAnalyticsApiController extends BaseController
                                     'soe_e'                     => $canalytics->an_soe_e,
                                     'soe_f'                     => $canalytics->an_soe_f,
                                     'gender_male'               => $canalytics->an_gender_male, 
-                                    'gender_female'             => $canalytics->an_gender_female 
-                                ), 
+                                    'gender_female'             => $canalytics->an_gender_female
+                    ),
                     'date_added'          => $canalytics->an_date_added
                 );
 
@@ -133,6 +137,7 @@ class CandleAnalyticsApiController extends BaseController
                 $where_array        = array('locations.node' => $location_node, 'locations.id' => $get_location->id);
                 $canalytics         = DB::table('locations')
                                     ->join('candle_analytics', 'candle_analytics.an_location_id', '=', 'locations.id')
+                                    ->join('candle_analytics_time', 'candle_analytics_time.id', '=', 'candle_analytics.an_time_id')
                                     ->where($where_array)
                                     ->orderBy('candle_analytics.id', 'DESC')
                                     ->get();
@@ -142,10 +147,8 @@ class CandleAnalyticsApiController extends BaseController
                     foreach ($canalytics as $key => $canalytics) {
 
                     $canalytics_array[] = array(
-                        'location'  => array(
-                                        'location_name' => $canalytics->name, 
-                                        'location_node' => $canalytics->node 
-                                    ), 
+                        'hour'      => $canalytics->time,
+                        'hour_text' => $canalytics->time_hrs,
                         'analytics' => array(
                                         'number_cars'               => $canalytics->an_number_cars, 
                                         'number_persons_per_car'    => $canalytics->an_number_persons_car, 
@@ -158,10 +161,18 @@ class CandleAnalyticsApiController extends BaseController
                                         'gender_male'               => $canalytics->an_gender_male, 
                                         'gender_female'             => $canalytics->an_gender_female 
                                     ), 
-                        'date_added'          => $canalytics->an_date_added
+                        'date_added' => $canalytics->an_date_added
                     );
 
                 }
+
+                $canalytics_array = array(
+                    'location'  => array(
+                        'location_name' => $get_location->name, 
+                        'location_node' => $get_location->node 
+                    ), 
+                    'time'      => $canalytics_array 
+                );
                 
                 return $this->sendResponse($canalytics_array, 'Candle analytics (Stats Data) retrieved successfully.');
 
@@ -170,7 +181,7 @@ class CandleAnalyticsApiController extends BaseController
                     $errorMessages = array(
                         'error_code'    => 404, 
                         'error_message' => 'No Candle Analytics available at the moment.',
-                        'help_url' => config('app.url').'/api/canalytics/'
+                        'help_url'      => config('app.url').'/api/canalytics/'
                     );
                     return $this->sendError('Ooops, No Candle Analytics available at the moment.', $errorMessages, 404);
 
@@ -187,7 +198,7 @@ class CandleAnalyticsApiController extends BaseController
             $errorMessages = array(
                 'error_code'    => 500, 
                 'error_message' => 'Missing location_node as parameter.',
-                'help_url' => config('app.url').'/api/locations/'
+                'help_url'      => config('app.url').'/api/locations/'
             );
             return $this->sendError('Ooops, please enter your location node. Find your location_node using the link below', $errorMessages, 500);
 

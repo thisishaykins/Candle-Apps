@@ -16,10 +16,10 @@ class AddTimeIdToCandleAnalyticsTable extends Migration
         Schema::table('candle_analytics', function (Blueprint $table) {
             // 1. Create new column
             // You probably want to make the new column nullable
-            $table->integer('time_id')->unsigned()->nullable()->after('id');
+            $table->integer('an_time_id')->unsigned()->nullable()->after('id');
 
             // 2. Create foreign key constraints
-            $table->foreign('time_id')->references('id')->on('candle_analytics_time')->onDelete('SET NULL');
+            $table->foreign('an_time_id')->references('id')->on('candle_analytics_time')->onDelete('SET NULL');
         });
     }
 
@@ -32,10 +32,10 @@ class AddTimeIdToCandleAnalyticsTable extends Migration
     {
         Schema::table('candle_analytics', function (Blueprint $table) {
             // 1. Drop foreign key constraints
-            // $table->dropForeign(['time_id']);
+            // $table->dropForeign(['an_time_id']);
 
             // 2. Drop the column
-            // $table->dropColumn('time_id');
+            // $table->dropColumn('an_time_id');
         });
     }
 }

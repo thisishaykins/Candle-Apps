@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CandleAnalytics;
+use App\CandleAnalyticsTime;
 use App\Locations;
 use Illuminate\Http\Request;
 
@@ -65,9 +66,10 @@ class CandleAnalyticsController extends Controller
             'author'        => config('app.name')
         );
 
-        $locations   = Locations::all();
+        $locations      = Locations::all();
+        $analytics_time = CandleAnalyticsTime::all();
 
-        return view('canalytics.create',compact('pages', 'locations'));
+        return view('canalytics.create',compact('pages', 'locations', 'analytics_time'));
 
     }
 
@@ -81,6 +83,7 @@ class CandleAnalyticsController extends Controller
     {
 
         $request->validate([
+            'time_id'           => 'required', 'string', 'max:3',
             'location_id'       => 'required', 'string', 'max:10',
             'num_cars'          => 'required', 'string', 'max:3',
             'avg_num_person'    => 'required', 'string', 'max:3',
@@ -96,6 +99,7 @@ class CandleAnalyticsController extends Controller
         ]);
 
         CandleAnalytics::create([
+            'an_time_id'            => $request->time_id,
             'an_location_id'        => $request->location_id,
             'an_number_cars'        => $request->num_cars,
             'an_number_persons_car' => $request->avg_num_person,
@@ -147,9 +151,10 @@ class CandleAnalyticsController extends Controller
             'author'        => config('app.name')
         );
 
-        $locations   = Locations::all();
+        $locations      = Locations::all();
+        $analytics_time = CandleAnalyticsTime::all();
 
-        return view('canalytics.edit',compact('canalytic', 'pages', 'locations'));
+        return view('canalytics.edit',compact('canalytic', 'pages', 'locations', 'analytics_time'));
 
     }
 
@@ -164,6 +169,7 @@ class CandleAnalyticsController extends Controller
     {
 
         $request->validate([
+            'time_id'           => 'required', 'string', 'max:10',
             'location_id'       => 'required', 'string', 'max:10',
             'num_cars'          => 'required', 'string', 'max:3',
             'avg_num_person'    => 'required', 'string', 'max:3',
@@ -179,6 +185,7 @@ class CandleAnalyticsController extends Controller
         ]);
 
         $canalytic->update([
+            'an_time_id'            => $request->time_id,
             'an_location_id'        => $request->location_id,
             'an_number_cars'        => $request->num_cars,
             'an_number_persons_car' => $request->avg_num_person,

@@ -30,6 +30,7 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Board/Locations</th>
+                                    <th scope="col">Time (Data Time)</th>
                                     <th scope="col">Average Cars</th>
                                     <th scope="col">Average Persons per Car</th>
                                     <th scope="col">Date Uploaded For</th>
@@ -42,6 +43,8 @@
                                     <th scope="row">--</th>
                                     <?php $location  = DB::table('locations')->where('id', '=', $analytic->an_location_id)->first(); ?>
                                     <td>{{ $location->name }} ({{ $location->node }})</td>
+                                    <?php $time  = DB::table('candle_analytics_time')->where('id', '=', $analytic->an_time_id)->first(); ?>
+                                    <td>{{ $time->time_hrs }} ({{ $time->time }})</td>
                                     <td>{{ $analytic->an_number_cars }}</td>
                                     <td>{{ $analytic->an_number_persons_car }}</td>
                                     <td>{{ $analytic->an_date_added }}</td>
