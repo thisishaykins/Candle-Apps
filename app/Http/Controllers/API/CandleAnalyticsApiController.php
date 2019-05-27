@@ -146,8 +146,8 @@ class CandleAnalyticsApiController extends BaseController
 
                     foreach ($canalytics as $key => $canalytics) {
                         $hour_array[]       = array(
-                            $canalytics->time,
-                            $canalytics->time_hrs,
+                            'hour'      => $canalytics->time,
+                            'hour_text' => $canalytics->time_hrs,
                             'analytics' => array(
                                 'number_cars'               => $canalytics->an_number_cars, 
                                 'number_persons_per_car'    => $canalytics->an_number_persons_car, 
