@@ -145,36 +145,52 @@ class CandleAnalyticsApiController extends BaseController
                 if (!empty($canalytics->first())) {
 
                     foreach ($canalytics as $key => $canalytics) {
+                        $hour_array[]       = array(
+                            $canalytics->time,
+                            $canalytics->time_hrs,
+                            'analytics' => array(
+                                'number_cars'               => $canalytics->an_number_cars, 
+                                'number_persons_per_car'    => $canalytics->an_number_persons_car, 
+                                'soe_a'                     => $canalytics->an_soe_a,
+                                'soe_b'                     => $canalytics->an_soe_b,
+                                'soe_c'                     => $canalytics->an_soe_c,
+                                'soe_d'                     => $canalytics->an_soe_d,
+                                'soe_e'                     => $canalytics->an_soe_e,
+                                'soe_f'                     => $canalytics->an_soe_f,
+                                'gender_male'               => $canalytics->an_gender_male, 
+                                'gender_female'             => $canalytics->an_gender_female 
+                            ),
+                            'date_added' => $canalytics->an_date_added
+                        );
+                        $canalytics_array[] = array(
+                            'hour'      => $canalytics->time,
+                            'hour_text' => $canalytics->time_hrs,
+                            'analytics' => array(
+                                'number_cars'               => $canalytics->an_number_cars, 
+                                'number_persons_per_car'    => $canalytics->an_number_persons_car, 
+                                'soe_a'                     => $canalytics->an_soe_a,
+                                'soe_b'                     => $canalytics->an_soe_b,
+                                'soe_c'                     => $canalytics->an_soe_c,
+                                'soe_d'                     => $canalytics->an_soe_d,
+                                'soe_e'                     => $canalytics->an_soe_e,
+                                'soe_f'                     => $canalytics->an_soe_f,
+                                'gender_male'               => $canalytics->an_gender_male, 
+                                'gender_female'             => $canalytics->an_gender_female 
+                            ),
+                            'date_added' => $canalytics->an_date_added
+                        );
 
-                    $canalytics_array[] = array(
-                        'hour'      => $canalytics->time,
-                        'hour_text' => $canalytics->time_hrs,
-                        'analytics' => array(
-                                        'number_cars'               => $canalytics->an_number_cars, 
-                                        'number_persons_per_car'    => $canalytics->an_number_persons_car, 
-                                        'soe_a'                     => $canalytics->an_soe_a,
-                                        'soe_b'                     => $canalytics->an_soe_b,
-                                        'soe_c'                     => $canalytics->an_soe_c,
-                                        'soe_d'                     => $canalytics->an_soe_d,
-                                        'soe_e'                     => $canalytics->an_soe_e,
-                                        'soe_f'                     => $canalytics->an_soe_f,
-                                        'gender_male'               => $canalytics->an_gender_male, 
-                                        'gender_female'             => $canalytics->an_gender_female 
-                                    ), 
-                        'date_added' => $canalytics->an_date_added
+                    }
+
+                    $canalytics_array = array(
+                        'location'  => array(
+                            'location_name' => $get_location->name, 
+                            'location_node' => $get_location->node 
+                        ), 
+                        $hour_array
                     );
-
-                }
-
-                $canalytics_array = array(
-                    'location'  => array(
-                        'location_name' => $get_location->name, 
-                        'location_node' => $get_location->node 
-                    ), 
-                    'time'      => $canalytics_array 
-                );
-                
-                return $this->sendResponse($canalytics_array, 'Candle analytics (Stats Data) retrieved successfully.');
+                    
+                    return $this->sendResponse($hour_array, 'Candle analytics (Stats Data) retrieved successfully.');
 
                 } else {
 
