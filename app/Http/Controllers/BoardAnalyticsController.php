@@ -39,7 +39,7 @@ class BoardAnalyticsController extends Controller
         );
 
         $analytics_stats = BoardAnalytics::latest()->paginate(50);
-  
+
         return view('analytics.index',compact('analytics_stats', 'pages'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
 

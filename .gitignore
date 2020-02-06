@@ -16,3 +16,4 @@ yarn-error.log
 .env
 .env.prod
 .phpunit.result.cache
+*.code-workspace

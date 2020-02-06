@@ -34,6 +34,7 @@ Route::middleware('auth:api')->group( function () {
 	Route::resource('freebies', 'API\FreebiesApiController');
 	Route::resource('business', 'API\BusinessNewsApiController');
 	Route::resource('canalytics', 'API\CandleAnalyticsApiController');
+	Route::resource('canalytics_indoor', 'API\CandleAnalyticsIndoorApiController');
 });
 
 // Sample GET API

@@ -66,4 +66,7 @@ Route::resource('locations', 'LocationsController');
 Route::resource('canalytics', 'CandleAnalyticsController');
 
 
+// Candle Indoor Analytics Controller & Page Routes
+Route::resource('canalytics_indoor', 'CandleAnalyticsIndoorController');
+
 

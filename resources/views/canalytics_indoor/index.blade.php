@@ -19,7 +19,7 @@
                   <div class="card-body">
                     <h4 class="header-title">
                       {{ __('All') }} {{ $pages['title'] }} 
-                      <small><a class="btn btn-success float-right" href="{{ route('canalytics.create') }}">Add New</a> </small> 
+                      <small><a class="btn btn-success float-right" href="{{ route('canalytics_indoor.create') }}">Add New Indoor</a> </small> 
                     </h4>
                   </div>
 
@@ -31,8 +31,7 @@
                                     <th scope="col">ID</th>
                                     <th scope="col">Board/Locations</th>
                                     <th scope="col">Time (Data Time)</th>
-                                    <th scope="col">Average Cars</th>
-                                    <th scope="col">Average Persons per Car</th>
+                                    <th scope="col">Average Persons</th>
                                     <th scope="col">Date Uploaded For</th>
                                     <th scope="col">action</th>
                                 </tr>
@@ -45,15 +44,14 @@
                                     <td>{{ $location->name }} ({{ $location->node }})</td>
                                     <?php $time  = DB::table('candle_analytics_time')->where('id', '=', $analytic->an_time_id)->first(); ?>
                                     <td>{{ $time->time_hrs }} ({{ $time->time }})</td>
-                                    <td>{{ $analytic->an_number_cars }}</td>
-                                    <td>{{ $analytic->an_number_persons_car }}</td>
+                                    <td>{{ $analytic->an_number_persons }}</td>
                                     <td>{{ $analytic->an_date_added }}</td>
                                     
                                     <td>
-                                      <form class="d-flex" action="{{ route('canalytics.destroy',$analytic->id) }}" method="POST">
+                                      <form class="d-flex" action="{{ route('canalytics_indoor.destroy',$analytic->id) }}" method="POST">
                                         <ul class="d-flex justify-content-center">
                                           <li class="mr-3">
-                                            <a href="{{ route('canalytics.edit',$analytic->id) }}" class="text-secondary"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('canalytics_indoor.edit',$analytic->id) }}" class="text-secondary"><i class="fa fa-edit"></i></a>
                                           </li>
                                           <!-- <li> -->
                                             <button type="submit" class="text-danger" onclick="confirm('Are you sure you want to delete analytic stats data for: {{ $location->name }} on {{ $analytic->an_date_added }}')" ><i class="ti-trash"></i></button>
